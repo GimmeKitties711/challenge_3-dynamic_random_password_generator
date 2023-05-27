@@ -34,7 +34,7 @@ function generatePassword() {
       alert("Please choose a password that is at least 8 characters long");
     } else if (inputLength > 128) { // password is too long
       alert("Please choose a password that is no longer than 128 characters"); 
-    } else { // if input is acceptable, store it in var passwordLength and move on
+    } else { // if input is acceptable, store it in the variable passwordLength and move on
       var passwordLength = inputLength;
       break;
     }
@@ -43,28 +43,28 @@ function generatePassword() {
   // source for while loop code - prompting user until valid input is given: https://stackoverflow.com/questions/35044961/loop-that-prompts-user-until-valid-input
   
   var charTypesNotDecided = true;
-  var acceptedCharTypes = new Array(4).fill(0);
+  var acceptedCharTypes = new Array(4).fill(0); // this array will be used to record which character types the user wants in their password
   // source for creating an array of zeros: https://bobbyhadz.com/blog/javascript-create-array-of-zeros
 
   while (charTypesNotDecided) { // until at least one character type is selected
     var lowercaseChoice = confirm("Would you like to use lowercase characters in your password? (OK = Yes, Cancel = No)");
     if (lowercaseChoice) {
-      acceptedCharTypes[0] = 1; // record that lowercase characters were accepted
+      acceptedCharTypes[0] = 1; // record that lowercase characters were selected
     }
 
     var uppercaseChoice = confirm("Would you like to use uppercase characters in your password? (OK = Yes, Cancel = No)");
     if (uppercaseChoice) {
-      acceptedCharTypes[1] = 1; // record that uppercase characters were accepted
+      acceptedCharTypes[1] = 1; // record that uppercase characters were selected
     }
 
     var numbersChoice = confirm("Would you like to use numbers in your password? (OK = Yes, Cancel = No)");
     if (numbersChoice) {
-      acceptedCharTypes[2] = 1; // record that numbers were accepted
+      acceptedCharTypes[2] = 1; // record that numbers were selected
     }
 
     var specialChoice = confirm("Would you like to use special characters in your password? (OK = Yes, Cancel = No)");
     if (specialChoice) {
-      acceptedCharTypes[3] = 1; // record that special characters were accepted
+      acceptedCharTypes[3] = 1; // record that special characters were selected
     }
 
     if (!lowercaseChoice && !uppercaseChoice && !numbersChoice && !specialChoice) { // if none of the character types were selected
@@ -76,19 +76,19 @@ function generatePassword() {
   
   includedChars = new Array(0); // starting length is 0
   for (i = 0; i < acceptedCharTypes.length; i++) {
-    if (acceptedCharTypes[i] === 1) { // if the char type was accepted
-      includedChars.push(allChars[i]); // add the corresponding entry from the array of all characters. each entry is an array that contains all of the characters for that character type. acceptedCharTypes and allChars have the same length so the index i can be used in both of them.
+    if (acceptedCharTypes[i] === 1) { // if the char type was selected
+      includedChars.push(allChars[i]); // add the corresponding entry from the array of all characters. each entry is an array that contains all of the characters for that character type. acceptedCharTypes and allChars have the same length so the index i can be used for both of them.
     }
   }
 
-  passwordArray = new Array(0); // this array will store one of the password characters at each index. the array will be joined later.
+  passwordArray = new Array(0); // this array will store a password character at each index. the first character will be stored at index 0, the second at index 1, and so on. the array will be joined after it is fully formed.
   for (i = 0; i < passwordLength; i++) { // perform this action passwordLength amount of times
-    chosenCharType = Math.floor(Math.random()*includedChars.length); // choose a char type by index. at least 0, at most 3 (if includedChars.length = 4)
-    passwordArray.push(includedChars[chosenCharType][Math.floor(Math.random()*includedChars[chosenCharType].length)]); // add a character to the array containing the password characters. first index is to choose an entry (array) from includedChars, second index is to choose a random character from that array.
+    chosenCharType = Math.floor(Math.random()*includedChars.length); // choose a char type by index. at least 0, at most 3 (if includedChars.length = 4). the type of char depends on the contents of includedChars.
+    passwordArray.push(includedChars[chosenCharType][Math.floor(Math.random()*includedChars[chosenCharType].length)]); // add a character to the array containing the password characters. first index chooses a random entry from includedChars, second index chooses a random character from that array.
   }
   
-  var passwordOutput = passwordArray.join(''); // join array of characters with no spaces between them
-  return passwordOutput; // output final password string
+  var passwordOutput = passwordArray.join(''); // source for joining array of characters with no spaces between them: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
+  return passwordOutput; // output final password
 }
 
 // Add event listener to generate button
