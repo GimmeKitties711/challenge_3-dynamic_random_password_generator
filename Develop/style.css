@@ -75,9 +75,9 @@ header {
 
 .btn {
   border: none;
-  background-color: hsl(360, 91%, 36%); /* in hsl, h = 360 means the same thing as h = 0 (red). source: https://hslpicker.com/ */
+  background-color: hsl(360, 91%, 36%); /* in hsl, 360 means the same thing as 0 (red). source: https://hslpicker.com/ */
   border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px, rgba(0, 0, 0, 0.2) 0px 1px 1px 0px; /* if two box shadows are given, they will both show, and they overlap each other in this case because the only difference between them is the color opacity and the blur radius */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px, rgba(0, 0, 0, 0.2) 0px 1px 1px 0px; /* if two box shadows are given, they will both show, and in this case they overlap each other because the only difference between them is the color opacity and the blur radius */
   color: hsl(0, 0%, 100%);
   display: inline-block;
   font-size: 22px;
@@ -126,12 +126,12 @@ button[disabled] {
   }
 
   #password {
-    font-size: 1rem; /* font size of password text in box is reduced by 0.2 rem when the screen shrinks */
+    font-size: 1rem; /* font size of password text in box is reduced by 0.2 rem (3.2px) when the screen shrinks */
   }
 }
 
 @media (max-width: 500px) {
   .btn {
-    font-size: 0.8rem; /* font size of button text is further reduced by 0.2 rem (3.2 px) when the screen becomes even smaller */
+    font-size: 0.8rem; /* font size of button text is further reduced by 0.2 rem when the screen becomes even smaller */
   }
 }
