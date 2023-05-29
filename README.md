@@ -12,6 +12,8 @@ The following images show the website's appearance:
 ![Character type prompts](Assets/Images/char_type_prompts.png)
 ![Password output](Assets/Images/password_output.png)
 
+The link to the deployed website can be found [here](https://gimmekitties711.github.io/challenge_3-dynamic_random_password_generator/)
+
 ## Credits
 No collaboration took place for this project, but the following web resources helped me write the code and comments for this project:
 
