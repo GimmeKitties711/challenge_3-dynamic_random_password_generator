@@ -1,7 +1,7 @@
 # Challenge 3: Dynamic Random Password Generator
 
 ## Description
-An employee that has access to sensitive data might need to create a secure password that allows them to protect the information they are working with. This project prompts the user to select up to four character types (lowercase, uppercase, numbers, and special characters) to include in their password. The output is a randomized password of a user-selected length, and it can be used for login credentials. I learned how to use unicode to represent special characters, keep prompting the user until valid input is given, and work with an array of arrays.
+An employee that has access to sensitive data might need to create a secure password that helps them protect the information they are working with. This project prompts the user to select up to four character types (lowercase, uppercase, numbers, and special characters) to include in their password. The output is a randomized password of a user-selected length, which can be used for login credentials. I learned how to use unicode to represent special characters, prompt the user until valid input is given, and work with an array of arrays.
 
 ## Installation
 No installation is required for this project.
@@ -13,7 +13,7 @@ The following images show the website's appearance:
 ![Password output](Assets/Images/password_output.png)
 
 ## Credits
-No collaboration took place for this project, but some web resources helped me write the code and comments for this project:
+No collaboration took place for this project, but the following web resources helped me write the code and comments for this project:
 
 1. [Special character unicode](https://owasp.org/www-community/password-special-characters)
 2. [Using unicode to represent special characters](https://stackoverflow.com/questions/13093126/insert-unicode-character-into-javascript)
