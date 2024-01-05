@@ -36,48 +36,41 @@ function generatePassword() {
       alert("Please choose a password that is no longer than 128 characters"); 
     } else { // if input is acceptable, store it in the variable passwordLength and move on
       var passwordLength = inputLength;
-      break;
+      break; // exit the while loop
     }
     inputLength = prompt("How many characters would you like your password to be?"); // if input is not acceptable, ask for it again
   }
   // source for while loop code - prompting user until valid input is given: https://stackoverflow.com/questions/35044961/loop-that-prompts-user-until-valid-input
   
   var charTypesNotDecided = true;
-  var acceptedCharTypes = new Array(4).fill(0); // this array will be used to record which character types the user wants in their password
-  // source for creating an array of zeros: https://bobbyhadz.com/blog/javascript-create-array-of-zeros
+
+  includedChars = new Array(0); // this array will be used to store the characters that will be used in the password. its starting length is 0.
 
   while (charTypesNotDecided) { // until at least one character type is selected
     var lowercaseChoice = confirm("Would you like to use lowercase characters in your password? (OK = Yes, Cancel = No)");
     if (lowercaseChoice) {
-      acceptedCharTypes[0] = 1; // record that lowercase characters were selected
+      includedChars.push(allChars[0]); // add the array of lowercase characters to includedChars
     }
 
     var uppercaseChoice = confirm("Would you like to use uppercase characters in your password? (OK = Yes, Cancel = No)");
     if (uppercaseChoice) {
-      acceptedCharTypes[1] = 1; // record that uppercase characters were selected
+      includedChars.push(allChars[1]); // add the array of uppercase characters to includedChars
     }
 
     var numbersChoice = confirm("Would you like to use numbers in your password? (OK = Yes, Cancel = No)");
     if (numbersChoice) {
-      acceptedCharTypes[2] = 1; // record that numbers were selected
+      includedChars.push(allChars[2]); // add the array of numbers to includedChars
     }
 
     var specialChoice = confirm("Would you like to use special characters in your password? (OK = Yes, Cancel = No)");
     if (specialChoice) {
-      acceptedCharTypes[3] = 1; // record that special characters were selected
+      includedChars.push(allChars[3]); // add the array of special characters to includedChars
     }
 
     if (!lowercaseChoice && !uppercaseChoice && !numbersChoice && !specialChoice) { // if none of the character types were selected
       alert("Please select at least one type of character to include in your password");
     } else { // if at least one character type was selected
-      break;
-    }
-  }
-  
-  includedChars = new Array(0); // starting length is 0
-  for (i = 0; i < acceptedCharTypes.length; i++) {
-    if (acceptedCharTypes[i] === 1) { // if the char type was selected
-      includedChars.push(allChars[i]); // add the corresponding entry from the array of all characters. each entry is an array that contains all of the characters for that character type. acceptedCharTypes and allChars have the same length so the index i can be used for both of them.
+      break; // exit the while loop
     }
   }
 
